@@ -31,13 +31,7 @@ require([
 
     var router = new ApplicationRouter();
     Backbone.history.start({
-        pushState: true
+        pushState: true,
+        hashChange: false
     });
-
-    $(document).on("click", "a", function(e){
-        e.preventDefault();
-        var href = $(e.currentTarget).attr('href');
-        router.navigate(href, true);
-    });
-
 });

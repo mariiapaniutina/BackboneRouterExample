@@ -4,6 +4,13 @@ define(function(require) {
     var BaseView = require('src/js/BaseView');
 
     var ApplicationRouter = Backbone.Router.extend({
+        initialize: function (){
+            $("body").on("click","a:not(a[data-bypass])",function(e){
+                e.preventDefault();
+                var href = $(this).attr("href");
+                Backbone.history.navigate(href,true);
+            });
+        },
         routes: {
             '': 'index',
             'home': 'navigateHome',
